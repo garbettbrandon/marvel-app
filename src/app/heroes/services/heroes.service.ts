@@ -24,4 +24,16 @@ export class HeroService {
       })
       .pipe(tap((resp) => console.log(resp)));
   }
+
+  getHeroById(id: number): Observable<MarvelResponse> {
+    return this.http
+      .get<MarvelResponse>(`${environment.baseUrl}/public/characters/${id}`, {
+        params: {
+          ts: environment.ts,
+          apikey: environment.apiKey,
+          hash: environment.hash,
+        },
+      })
+      .pipe(tap((resp) => console.log(resp)));
+  }
 }

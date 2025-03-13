@@ -20,7 +20,7 @@ export const marvelFrontRoutes: Routes = [
       },
 
       {
-        path: 'detail/:idSlug',
+        path: 'detail/:id',
         component: DetailPageComponent,
       },
       {
