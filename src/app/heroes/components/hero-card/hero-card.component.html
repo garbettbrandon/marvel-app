@@ -1,8 +1,8 @@
 <div class="card card-compact bg-base-100 shadow-xl">
   <figure>
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes"
+      [src]="hero().thumbnail.path + '/portrait_medium.jpg'"
+      [alt]="'Image of' + hero().name"
     />
   </figure>
   <div class="card-body">
@@ -10,7 +10,7 @@
       class="card-title text-accent text-lg hover:underline cursor-pointer"
       routerLink="/detail"
     >
-      Card Title
+      {{ hero().name }}
     </h2>
     <div class="card-actions justify-end">
       <button class="btn btn-square btn-ghost">
