@@ -15,19 +15,25 @@
       <path d="m21 21-4.3-4.3"></path>
     </g>
   </svg>
-  <input type="search" required placeholder="Search" />
+  <input
+    type="search"
+    required
+    placeholder="Search"
+    (keyup.enter)="query()"
+    #txtSearch
+  />
 </label>
 
-<h2 class="mt-5">0 Resultados</h2>
+<h2 class="mt-5">{{ heroesResource.value()?.data?.count }} Resultados</h2>
 
 <div
   class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3 mt-5"
 >
-  @for (hero of heroesResource.value()?.data?.results; track $index) {
+  @for (hero of heroSearchResource.value(); track $index) {
   <hero-card [hero]="hero"></hero-card>
   }
   <!-- Empty -->
   @empty {
-  <p>No hay heroes</p>
+  <p>Cargando...</p>
   }
 </div>

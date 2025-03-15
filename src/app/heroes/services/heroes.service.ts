@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Hero, MarvelResponse } from '../interfaces/heroes.interface';
-import { Observable, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
@@ -35,5 +35,20 @@ export class HeroService {
         },
       })
       .pipe(tap((resp) => console.log(resp)));
+  }
+
+  searchHero(query: string): Observable<Hero[]> {
+    query = query.toLowerCase();
+
+    return this.http
+      .get<MarvelResponse>(`${environment.baseUrl}/public/characters`, {
+        params: {
+          name: query,
+          ts: environment.ts,
+          apikey: environment.apiKey,
+          hash: environment.hash,
+        },
+      })
+      .pipe(map(({ data }) => data.results));
   }
 }
