@@ -20,16 +20,14 @@
   />
 </div>
 
-<h2 class="mt-5">{{ heroesResource.value()?.data?.count }} Resultados</h2>
+<h2>{{ heroesResource.value()?.data?.count }} Resultados</h2>
 
-<div
-  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3 mt-5"
->
+<div class="heroes">
   @for (hero of heroSearchResource.value(); track $index) {
-  <hero-card [hero]="hero"></hero-card>
-  }
-  <!-- Empty -->
-  @empty {
-  <p>Cargando...</p>
+  <hero-card [hero]="hero" class="hero__card"></hero-card>
+  } @empty {
+  <div class="notFound">
+    <p>Loading heroes...</p>
+  </div>
   }
 </div>

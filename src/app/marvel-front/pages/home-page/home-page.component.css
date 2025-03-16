@@ -30,3 +30,40 @@
   font-size: 1rem;
   margin-bottom: 3rem;
 }
+
+.heroes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, [col-start] 9.7rem [col-end]);
+  justify-content: center;
+
+  gap: 1rem;
+  width: 100%;
+}
+
+.hero__card {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 14rem;
+
+  background-color: black;
+  color: white;
+  border-bottom-right-radius: 30px;
+
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hero__card:hover {
+  background-color: red;
+}
+
+.hero__card:hover .heart.favorite {
+  background-image: url("../../../../../public/assets/svg/heart-empty.svg");
+}
+
+@media (min-width: 444px) {
+  .heroes {
+    grid-template-columns: repeat(auto-fill, [col-start] 12rem [col-end]);
+  }
+}
