@@ -12,6 +12,7 @@ import { of } from 'rxjs';
   selector: 'app-home-page',
   imports: [HeroCardComponent],
   templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent {
   heroService = inject(HeroService);

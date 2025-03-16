@@ -1,0 +1,54 @@
+.hero__image {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+
+  cursor: pointer;
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+}
+
+.hero__image:hover {
+  -webkit-filter: brightness(70%);
+  filter: brightness(70%);
+}
+
+.hero__info {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0.6rem;
+  padding-bottom: 1rem;
+  height: 3rem;
+
+  border-top: 8px solid red;
+}
+
+.hero__name {
+  width: fit-content;
+  max-width: 7rem;
+
+  text-decoration: none;
+  color: white;
+}
+
+.heart {
+  width: 14px;
+  height: 14px;
+  background-size: cover;
+
+  cursor: pointer;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.heart.empty {
+  background-image: url("../../../../../public/assets/svg/heart-empty.svg");
+}
+
+.heart.filled {
+  background-image: url("../../../../../public/assets/svg/heart-filled.svg");
+}
+
+.heart.favorite {
+  background-image: url("../../../../../public/assets/svg/heart-filled-red.svg");
+}

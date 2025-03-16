@@ -7,6 +7,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
   selector: 'app-detail-page',
   imports: [],
   templateUrl: './detail-page.component.html',
+  styleUrls: ['./detail-page.component.css'],
 })
 export class DetailPageComponent {
   activatedRoute = inject(ActivatedRoute);

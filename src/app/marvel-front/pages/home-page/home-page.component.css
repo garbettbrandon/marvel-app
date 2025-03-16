@@ -1,0 +1,32 @@
+.search__container {
+  display: flex;
+  align-items: center;
+
+  font-size: 1.2rem;
+}
+
+.browser {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  padding-left: 2rem;
+  margin: 0.8em 0;
+  margin-left: -14px;
+
+  font-size: 1.3rem;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.browser:focus {
+  outline: none;
+  border-bottom: 1px solid red;
+}
+
+.svg {
+  position: relative;
+}
+
+.search__results {
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}

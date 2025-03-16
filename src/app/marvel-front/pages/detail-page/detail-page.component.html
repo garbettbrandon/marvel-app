@@ -1,11 +1,8 @@
-@if( heroResource.isLoading() ) {
+<!-- @if( heroResource.isLoading() ) {
 <div class="flex justify-center items-center h-screen">
   <span class="loading loading-spinner loading-lg"></span>
 </div>
-}
-
-<!-- Producto -->
-@if( heroResource.hasValue() ) {
+} @if( heroResource.hasValue() ) {
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
   <img
@@ -29,8 +26,45 @@
 
 <div>
   <h2>Comics</h2>
-  <img src="" alt="">
+  <img src="" alt="" />
   <p>{{ heroResource.value().data.results[0].comics.items[0].name }}</p>
 </div>
 
+} -->
+
+@if( heroResource.isLoading() ) {
+<div class="notFound">
+  <p>Loading hero...</p>
+</div>
+} @if( heroResource.hasValue() ) {
+<div class="hero">
+  <img
+    class="hero__image"
+    [src]="
+      heroResource.value().data.results[0].thumbnail.path +
+      '/portrait_uncanny.jpg'
+    "
+    alt="Imagen Heroe"
+  />
+  <div class="hero__info">
+    <div class="hero__title">
+      <h1>{{ heroResource.value().data.results[0].name }}</h1>
+      <button class="heart"></button>
+    </div>
+    <p class="hero__description">
+      {{
+        heroResource.value().data.results[0].description ||
+          "No description available."
+      }}
+    </p>
+  </div>
+</div>
+
+<div class="layout__content">
+  <!-- <heroes-comics [heroId]="hero.id" /> -->
+</div>
+} @else {
+<div>
+  <p class="notFound">Hero not found.</p>
+</div>
 }

@@ -1,4 +1,4 @@
-<div class="card card-compact bg-base-100 shadow-xl">
+<!-- <div class="card card-compact bg-base-100 shadow-xl">
   <figure>
     <img
       [src]="hero().thumbnail.path + '/portrait_medium.jpg'"
@@ -28,4 +28,18 @@
       </button>
     </div>
   </div>
+</div> -->
+
+<img
+  routerLink="/detail/{{ hero().id }}"
+  [src]="hero().thumbnail.path + '/portrait_uncanny.jpg'"
+  [alt]="'Image of' + hero().name"
+  width="200"
+  class="hero__image"
+/>
+<div class="hero__info">
+  <a routerLink="/detail/{{ hero().id }}" class="hero__name">
+    {{ hero().name }}
+  </a>
+  <button class="heart"></button>
 </div>

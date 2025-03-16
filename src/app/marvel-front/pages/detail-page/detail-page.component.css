@@ -1,0 +1,105 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+  background-color: black;
+  border-bottom-right-radius: 40px;
+}
+
+.hero__info {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  min-width: 12rem;
+}
+
+.hero__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1rem;
+
+  font-size: 1.2rem;
+}
+
+.hero__description {
+  text-transform: none;
+}
+
+.heart {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-image: url("../../../../../public/assets/svg/heart-empty.svg");
+
+  cursor: pointer;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.heart:hover {
+  background-image: url("../../../../../public/assets/svg/heart-filled.svg");
+}
+
+.layout__content {
+  margin: 1.5rem;
+}
+
+@media (min-width: 700px) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border-top: 1px solid rgb(15, 15, 15);
+  }
+
+  .hero__image {
+    width: 22rem;
+  }
+
+  .hero__title {
+    font-size: 1.5rem;
+  }
+
+  .hero__info {
+    padding: 1.5rem;
+    min-width: 19rem;
+
+    & h1 {
+      width: 90%;
+    }
+
+    & p {
+      text-wrap: auto;
+    }
+  }
+}
+
+.heart.empty {
+  background-image: url("../../../../../public/assets/svg/heart-empty.svg");
+}
+
+.heart.filled {
+  background-image: url("../../../../../public/assets/svg/heart-filled.svg");
+}
+
+.heart.favorite {
+  background-image: url("../../../../../public/assets/svg/heart-filled-red.svg");
+}
+
+@media (min-width: 1100px) {
+  .hero {
+    justify-content: center;
+  }
+
+  .hero__image {
+    margin-right: 1.5rem;
+  }
+
+  .hero__info {
+    width: 44rem;
+  }
+}

@@ -1,0 +1,21 @@
+.layout__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+
+  color: white;
+  background-color: black;
+}
+
+.favorites {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 2.9rem;
+
+  text-decoration: none;
+  color: white;
+}
