@@ -33,12 +33,17 @@
 }
 
 .heart {
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
   background-size: cover;
+  background-image: url("../../../../../public/assets/svg/heart-empty.svg");
 
   cursor: pointer;
   transition: background-image 0.3s ease-in-out;
+}
+
+.heart:hover {
+  background-image: url("../../../../../public/assets/svg/heart-filled.svg");
 }
 
 .heart.empty {

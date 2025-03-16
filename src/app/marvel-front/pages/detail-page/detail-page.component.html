@@ -1,36 +1,3 @@
-<!-- @if( heroResource.isLoading() ) {
-<div class="flex justify-center items-center h-screen">
-  <span class="loading loading-spinner loading-lg"></span>
-</div>
-} @if( heroResource.hasValue() ) {
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-  <img
-    [src]="
-      heroResource.value().data.results[0].thumbnail.path +
-      '/portrait_uncanny.jpg'
-    "
-    alt="Imagen Heroe"
-  />
-  <div>
-    <h2 class="text-2xl font-bold">
-      {{ heroResource.value().data.results[0].name }}
-    </h2>
-    <div class="divider"></div>
-
-    <p>
-      {{ heroResource.value().data.results[0].description }}
-    </p>
-  </div>
-</div>
-
-<div>
-  <h2>Comics</h2>
-  <img src="" alt="" />
-  <p>{{ heroResource.value().data.results[0].comics.items[0].name }}</p>
-</div>
-
-} -->
 
 @if( heroResource.isLoading() ) {
 <div class="notFound">

@@ -6,8 +6,8 @@ export const environment = {
   //URLs
   // baseUrl: 'https://gateway.marvel.com/v1/public',
 
-  apiKey: '6513a69e3e10c8d45501c9a6adeb095f',
+  apiKey: '4e556fe71962312c69f49f4190a1a6be',
   baseUrl: 'https://gateway.marvel.com/v1',
-  hash: 'ea0786269ced455d2393af4f8e9d5e85',
+  hash: '900fbb0a6e71175b41dc7d614e543eba',
   ts: '1',
 };
