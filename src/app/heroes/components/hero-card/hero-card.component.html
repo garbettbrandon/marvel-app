@@ -9,5 +9,9 @@
   <a routerLink="/detail/{{ hero().id }}" class="hero__name">
     {{ hero().name }}
   </a>
-  <button class="heart" (click)="addFavorite(hero())"></button>
+  <button
+    class="heart"
+    [class.favorite]="isFavorite(hero())"
+    (click)="toggleFavorite(hero())"
+  ></button>
 </div>

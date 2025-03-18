@@ -8,7 +8,7 @@ import { Comic } from '../interfaces/comics.interface';
 @Injectable({ providedIn: 'root' })
 export class HeroService {
   private http = inject(HttpClient);
-  private favorites = signal<Hero[]>([]);
+  private favorites = signal<Hero[]>(this.loadFavoritesFromLocalStorage());
 
   constructor() {
     this.getHeroes();
@@ -61,15 +61,6 @@ export class HeroService {
       .pipe(tap((resp) => console.log(resp)));
   }
 
-  addFavorite(hero: Hero): void {
-    this.favorites.update((current) => [...current, hero]);
-  }
-
-  getFavorites(): Hero[] {
-    return this.favorites();
-  }
-
-  // * Obtener los 20 primeros Cómics por la ID del héroe por fecha de salida
   public getComicsByHeroId(id: number): Observable<Comic[]> {
     return this.http
       .get<{ data: { results: Comic[] } }>(
@@ -102,5 +93,38 @@ export class HeroService {
           return of([]);
         })
       );
+  }
+
+  addFavorite(hero: Hero): void {
+    this.favorites.update((current) => {
+      const updatedFavorites = [...current, hero];
+      this.saveFavoritesToLocalStorage(updatedFavorites);
+      return updatedFavorites;
+    });
+  }
+
+  getFavorites(): Hero[] {
+    return this.favorites();
+  }
+
+  private saveFavoritesToLocalStorage(favorites: Hero[]): void {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
+
+  private loadFavoritesFromLocalStorage(): Hero[] {
+    const favorites = localStorage.getItem('favorites');
+    return favorites ? JSON.parse(favorites) : [];
+  }
+
+  isFavorite(hero: Hero): boolean {
+    return this.favorites().some((fav) => fav.id === hero.id);
+  }
+
+  removeFavorite(hero: Hero): void {
+    this.favorites.update((current) => {
+      const updatedFavorites = current.filter((fav) => fav.id !== hero.id);
+      this.saveFavoritesToLocalStorage(updatedFavorites);
+      return updatedFavorites;
+    });
   }
 }

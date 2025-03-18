@@ -11,9 +11,18 @@ import { HeroService } from '../../services/heroes.service';
 })
 export class HeroCardComponent {
   hero = input.required<Hero>();
+  
   constructor(private heroService: HeroService) {}
 
-  addFavorite(hero: Hero): void {
-    this.heroService.addFavorite(hero);
+  isFavorite(hero: Hero): boolean {
+    return this.heroService.isFavorite(hero);
+  }
+
+  toggleFavorite(hero: Hero): void {
+    if (this.isFavorite(hero)) {
+      this.heroService.removeFavorite(hero);
+    } else {
+      this.heroService.addFavorite(hero);
+    }
   }
 }

@@ -57,3 +57,7 @@
 .heart.favorite {
   background-image: url("../../../../../public/assets/svg/heart-filled-red.svg");
 }
+
+.heart.favorite:hover {
+  background-image: url("../../../../../public/assets/svg/heart-filled.svg");
+}
