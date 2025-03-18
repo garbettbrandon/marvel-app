@@ -1,0 +1,22 @@
+<h3 class="title">Comics</h3>
+
+@if (isLoading) {
+<div class="notFound">
+  <p>Loading comics...</p>
+</div>
+} @if (comics.length > 0) {
+<ul class="comics_container">
+  @for ( comic of comics; track comic.id) {
+  <li class="comic">
+    <img
+      class="comic__image"
+      [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+      [alt]="comic.title"
+      width="100"
+    />
+    <h4 class="comic__title">{{ comic.title }}</h4>
+    <span class="comic__date">{{ comic.dates[0].date | date : "yyyy" }}</span>
+  </li>
+  }
+</ul>
+}

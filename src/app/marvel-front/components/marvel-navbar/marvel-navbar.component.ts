@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { HeroService } from '../../../heroes/services/heroes.service';
 
 @Component({
   selector: 'marvel-navbar',
@@ -7,4 +8,10 @@ import { RouterLink } from '@angular/router';
   templateUrl: './marvel-navbar.component.html',
   styleUrls: ['./marvel-navbar.component.css'],
 })
-export class MarvelNavbarComponent {}
+export class MarvelNavbarComponent {
+  heroService = inject(HeroService);
+
+  get favorites() {
+    return this.heroService.getFavorites();
+  }
+}

@@ -1,42 +1,15 @@
-.search__container {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  margin: 20px;
-}
+.heroes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, [col-start] 9.7rem [col-end]);
+  justify-content: center;
 
-.browser {
+  gap: 1rem;
   width: 100%;
-  padding: 0.5rem 1rem;
-  padding-left: 2rem;
-  margin: 0.8em 0;
-  margin-left: -14px;
-
-  font-size: 1.3rem;
-  border: none;
-  border-bottom: 1px solid black;
-}
-
-.browser:focus {
-  outline: none;
-  border-bottom: 1px solid red;
-}
-
-.svg {
-  position: relative;
 }
 
 .search__results {
   font-size: 1rem;
   margin: 20px;
-}
-
-.heroes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, [col-start] 9.7rem [col-end]);
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
 }
 
 .hero__card {

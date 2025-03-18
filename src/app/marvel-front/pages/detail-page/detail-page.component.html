@@ -1,4 +1,3 @@
-
 @if( heroResource.isLoading() ) {
 <div class="notFound">
   <p>Loading hero...</p>
@@ -28,10 +27,6 @@
 </div>
 
 <div class="layout__content">
-  <!-- <heroes-comics [heroId]="hero.id" /> -->
-</div>
-} @else {
-<div>
-  <p class="notFound">Hero not found.</p>
+  <hero-comics [heroId]="heroResource.value().data.results[0].id" />
 </div>
 }

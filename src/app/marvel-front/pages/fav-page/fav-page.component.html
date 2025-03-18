@@ -1,11 +1,11 @@
-<div class="layout__content">
-  <h1>Favorites</h1>
+<div class="search__results">{{ favorites.length }} Resultados</div>
 
-  <section>
-
-  </section>
-
-  <main>
-    
-  </main>
+<div class="heroes">
+  @for (hero of favorites; track $index) {
+  <hero-card [hero]="hero" class="hero__card"></hero-card>
+  } @empty {
+  <div class="notFound">
+    <p>No favourites heroes yet...</p>
+  </div>
+  }
 </div>
