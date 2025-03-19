@@ -1,59 +1,100 @@
 # MarvelApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+MarvelApp es una aplicación web desarrollada con Angular que permite explorar personajes y cómics del universo Marvel. La aplicación utiliza la API de Marvel para obtener datos en tiempo real y ofrece funcionalidades como búsqueda de personajes, visualización de detalles y gestión de favoritos.
 
-## Development server
+## Requisitos previos
 
-To start a local development server, run:
+Antes de ejecutar la aplicación, asegúrate de tener instalados los siguientes requisitos:
 
-```bash
-ng serve
+- [Node.js](https://nodejs.org/) (versión 16 o superior)
+- [Angular CLI](https://angular.io/cli) (versión 19.1.6 o superior)
+
+## Cómo ejecutar la aplicación
+
+Sigue estos pasos para ejecutar la aplicación en tu entorno local:
+
+1. Clona este repositorio en tu máquina local:
+   ```bash
+   git clone <https://github.com/garbettbrandon/marvel-app.git>
+   cd marvel-app
+   ```
+
+2. Instala las dependencias del proyecto:
+   ```bash
+   npm install
+   ```
+
+3. Inicia el servidor de desarrollo:
+   ```bash
+   ng serve
+   ```
+
+4. Abre tu navegador y navega a `http://localhost:4200/`.
+
+La aplicación se recargará automáticamente cada vez que modifiques los archivos fuente.
+
+## Arquitectura del proyecto
+
+El proyecto sigue la arquitectura modular de Angular, con una estructura organizada en módulos, componentes, servicios e interfaces. A continuación, se describe la estructura principal:
+
+```
+src/
+├── app/
+│   ├── app.component.ts       # Componente raíz de la aplicación
+│   ├── app.config.ts          # Configuración de la aplicación
+│   ├── app.routes.ts          # Definición de rutas principales
+│   ├── heroes/                # Módulo para la gestión de héroes
+│   │   ├── components/        # Componentes relacionados con héroes
+│   │   ├── interfaces/        # Interfaces para los datos de héroes y cómics
+│   │   ├── services/          # Servicios para consumir la API de Marvel
+│   ├── marvel-front/          # Módulo principal de la interfaz
+│       ├── components/        # Componentes de la interfaz (navbar, etc.)
+│       ├── layouts/           # Layouts para organizar las vistas
+│       ├── pages/             # Páginas principales (home, detalle, favoritos)
+├── environments/              # Configuración de entornos (desarrollo y producción)
+├── styles.css                 # Estilos globales de la aplicación
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Funcionalidades principales
 
-## Code scaffolding
+- **Búsqueda de personajes:** Busca personajes del universo Marvel por nombre.
+- **Detalles de personajes:** Visualiza información detallada de un personaje, incluyendo su descripción y cómics relacionados.
+- **Gestión de favoritos:** Marca personajes como favoritos y accede a ellos fácilmente desde la página de favoritos.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Configuración de la API de Marvel
 
-```bash
-ng generate component component-name
-```
+La aplicación utiliza la API de Marvel para obtener datos. La configuración de la API se encuentra en los archivos de entorno:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- `src/environments/environment.ts` (producción)
+- `src/environments/environment.development.ts` (desarrollo)
 
-```bash
-ng generate --help
-```
+Asegúrate de que las claves de API (`apiKey`, `hash`, `ts`) estén configuradas correctamente en estos archivos.
 
-## Building
+## Scripts disponibles
 
-To build the project run:
+- `npm start`: Inicia el servidor de desarrollo.
+- `npm run build`: Compila la aplicación para producción.
+- `npm test`: Ejecuta las pruebas unitarias con Karma.
 
-```bash
-ng build
-```
+## Pruebas
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Pruebas unitarias
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Para ejecutar las pruebas unitarias, utiliza el siguiente comando:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## Recursos adicionales
 
-For end-to-end (e2e) testing, run:
+- [Documentación de Angular CLI](https://angular.dev/tools/cli)
+- [API de Marvel](https://developer.marvel.com/)
 
-```bash
-ng e2e
-```
+## Contribuciones
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Si deseas contribuir a este proyecto, por favor abre un issue o envía un pull request. ¡Toda ayuda es bienvenida!
 
-## Additional Resources
+## Licencia
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este proyecto está licenciado bajo la [MIT License](LICENSE).
